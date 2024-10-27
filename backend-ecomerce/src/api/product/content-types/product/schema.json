@@ -1,0 +1,70 @@
+{
+  "kind": "collectionType",
+  "collectionName": "products",
+  "info": {
+    "singularName": "product",
+    "pluralName": "products",
+    "displayName": "Product",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "productName": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "productName"
+    },
+    "description": {
+      "type": "text"
+    },
+    "images": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "active": {
+      "type": "boolean",
+      "default": true
+    },
+    "price": {
+      "type": "decimal"
+    },
+    "productStatus": {
+      "type": "enumeration",
+      "enum": [
+        "New",
+        "Used good",
+        "Used fair"
+      ]
+    },
+    "productBrand": {
+      "type": "enumeration",
+      "enum": [
+        "Apple",
+        "Samsung",
+        "Xiamoi",
+        "Lenovo",
+        "Sony"
+      ]
+    },
+    "isFeatured": {
+      "type": "boolean"
+    },
+    "category": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::category.category"
+    }
+  }
+}
