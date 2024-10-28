@@ -3,6 +3,7 @@ import { Heart, ShoppingCart, User } from "lucide-react"
 import { useRouter } from "next/navigation"
 import MenuList from "./menu-list"
 import MenuMobile from "./items-menu-mobile"
+import { ModeToggle } from "./theme-toggle"
 
 export const Navbar = () => {
     const router = useRouter()
@@ -23,8 +24,8 @@ export const Navbar = () => {
             <ShoppingCart strokeWidth="1" className="cursor-pointer" onClick={() => router.push("/cart")}/>
             <Heart strokeWidth="1" className="cursor-pointer" onClick={() => router.push("/favorites")}/>
             <User strokeWidth="1" className="cursor-pointer" onClick={() => router.push("/dashboard")}/>
+          <ModeToggle/>
          </div>
-
        </nav>
     )
 }
