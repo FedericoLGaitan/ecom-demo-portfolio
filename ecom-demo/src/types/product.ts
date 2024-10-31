@@ -15,8 +15,8 @@ export type ProductType = {
             attributes: {
                 url: string,
 
-            }[]
-        }
+            }
+        }[]
     }
     category: {
         data: {
