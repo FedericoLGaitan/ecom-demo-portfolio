@@ -1,27 +1,30 @@
 import { useEffect, useState } from "react"
+import { json } from "stream/consumers"
 
-export function useFeaturedProducts() {
 
-    const url = `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/products?filters[isFeatured][$eq]=true&populate=*`
+
+export function useGetCategories() {
+
+    const url = `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/categories?populate=*`
 
     const [result, setResult] = useState(null)
     const [loading, setLoading] = useState(true)
     const [error, setError] = useState("")
-
-    useEffect(()=> {
+    
+    useEffect(()=>{
         (async () => {
             try {
                 const res = await fetch(url)
-                const json = await res.json()
-                setResult(json.data)
+                const data =  await res.json()
+                setResult(data.data)
                 setLoading(false)
             } catch (error: any) {
                 setError(error)
-                setLoading(false)
             }
         })()
-    }, [url])
+    },[url])
+
 
     return {result, loading, error}
-    
+
 }

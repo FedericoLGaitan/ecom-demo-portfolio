@@ -14,7 +14,7 @@ const FeaturedProducts = () => {
 
 
    const router = useRouter(); 
-   const {result, loading, error}: ResponseType = useFeaturedProducts()
+   const {result, loading}: ResponseType = useFeaturedProducts()
         
         return (
         <div className="max-w-6xl py-4 mx-auto sm:py-16 sm:px-24">
