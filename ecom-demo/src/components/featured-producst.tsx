@@ -11,21 +11,19 @@ const FeaturedProducts = () => {
     
    const {result, loading, error}: ResponseType = useFeaturedProducts()
         
-      console.log(result)
-
-    return (
+        return (
         <div className="max-w-6xl py-4 mx-auto sm:py-16 sm:px-24">
              <h3 className="px-6 text-3xl sm:pb-8">Featured Products</h3>
              <Carousel>
                 <CarouselContent className="-ml-2 md:-ml-4">
-                    {true && (
+                    {loading && (
                         <SkeletonSchema grid={3}/>
                     )}
-                    {result != null && (
+                    {result !== null && (
                         result.map((product: ProductType) => {
-                          
-                           const {images, id} = product
 
+                            const {images, id} = product
+                                
                             return (
                                 <CarouselItem key={id} className="md:basis-1/2 lg:basis-1/3 group">
                                     <div className="p-1">

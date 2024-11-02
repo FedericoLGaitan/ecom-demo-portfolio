@@ -20,8 +20,7 @@ export function useFeaturedProducts() {
                 setLoading(false)
             }
         })()
-    }, [url])
-
+    }, [])
 
     return {result, loading, error}
     

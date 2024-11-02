@@ -1,16 +1,18 @@
+import { Category } from "./category"
+
 export type ProductType = {
-    id: number;
-    productName: string;
-    slug: string;
-    description: string;
-    active: boolean;
-    isFeatured: boolean;
-    productStatus: string;
-    productBrand: string;
-    price: number;
+    id: string,
+    productName: string,
+    slug: string,
+    description: string,
+     price: number,
+    productStatus: string,
+    productBrand: string,
+    isFeatured: boolean,
     images: 
-        {
-        id: number;
-        url: string;
-      }[];
-    };
+      {
+        id: number,
+        url: string,
+      }[]
+    category: Category
+  }
