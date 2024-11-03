@@ -3,6 +3,6 @@ export type Category = {
     categoryName: string,
     slug: string,
     mainImage?: {
-        url: "string"
+        url: string
     }
 }

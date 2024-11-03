@@ -1,4 +1,5 @@
 
+import { ResponseType } from '@/types/response'
 import  { useEffect, useState } from 'react'
 
 
@@ -15,7 +16,7 @@ export const GetCategoryProducts = (slug: string | string[] | undefined
         (async () => {
             try {
                 const res = await fetch(url)
-                const json = await res.json()
+                const json  = await res.json()
                 setResult(json.data)
                 setLoading(false)
             } catch (error: any) {

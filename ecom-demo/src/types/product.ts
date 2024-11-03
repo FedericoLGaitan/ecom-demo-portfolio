@@ -14,5 +14,5 @@ export type ProductType = {
         id: number,
         url: string,
       }[]
-    category: Category
+    category: Category 
   }
