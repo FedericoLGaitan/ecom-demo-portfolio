@@ -1,7 +1,7 @@
 "use client"
 
 import { ResponseType } from "@/types/response"
-import { useFeaturedProducts } from "../api/useGetFeaturedProducts"
+import { useFeaturedProducts } from "../helpers/useGetFeaturedProducts"
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "./ui/carousel"
 import SkeletonSchema from "./skeleton-schema"
 import { ProductType } from "@/types/product"

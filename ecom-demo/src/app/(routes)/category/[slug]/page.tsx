@@ -1,6 +1,6 @@
 "use client";
 
-import { GetCategoryProducts } from "@/api/useGetCategoryProducts";
+import { GetCategoryProducts } from "@/helpers/useGetCategoryProducts";
 import { Separator } from "@/components/ui/separator";
 import {ResponseType } from "@/types/response";
 import { useParams, useRouter } from "next/navigation";

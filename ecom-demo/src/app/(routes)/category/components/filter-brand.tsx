@@ -1,5 +1,5 @@
 
-import { useGetProductsFields } from '@/api/useGetProductsFields'
+import { useGetProductsFields } from '@/helpers/useGetProductsFields'
 import React from 'react'
 
 const FilterBrand = () => {
