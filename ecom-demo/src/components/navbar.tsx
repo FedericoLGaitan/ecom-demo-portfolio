@@ -24,6 +24,7 @@ export const Navbar = () => {
             <ShoppingCart strokeWidth="1" className="cursor-pointer" onClick={() => router.push("/cart")}/>
             <Heart strokeWidth="1" className="cursor-pointer" onClick={() => router.push("/favorites")}/>
             <User strokeWidth="1" className="cursor-pointer" onClick={() => router.push("/dashboard")}/>
+            <a href="/api/auth/login">Login</a>
           <ModeToggle/>
          </div>
        </nav>
