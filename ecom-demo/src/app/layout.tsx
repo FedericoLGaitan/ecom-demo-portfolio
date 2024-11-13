@@ -4,7 +4,6 @@ import "./globals.css";
 import { Navbar } from "@/components/navbar";
 import Footer from "@/components/footer";
 import { ThemeProvider } from "@/components/theme-provider";
-import { UserProvider } from "@auth0/nextjs-auth0/client";
 
 const urbanist = Urbanist({
     subsets: ["latin"]
@@ -22,8 +21,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" >
-      <UserProvider>
-      <body
+]      <body
         className={`${urbanist.className} antialiased`} >
         <ThemeProvider
          attribute="class"
@@ -35,7 +33,6 @@ export default function RootLayout({
         <Footer/>
         </ThemeProvider>
       </body>
-       </UserProvider>
     </html>
   );
 }
