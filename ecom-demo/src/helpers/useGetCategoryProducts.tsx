@@ -1,5 +1,4 @@
 
-import { ResponseType } from '@/types/response'
 import  { useEffect, useState } from 'react'
 
 
