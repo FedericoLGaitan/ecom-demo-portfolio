@@ -12,7 +12,7 @@ const FilterBrand = (props: setFilterBrandProps) => {
   const { result, error, loading }: FilterTypes = useGetProductsFields();
   console.log(result);
   return (
-    <div className="my-5">
+    <div className="my-5 p-6">
       <p className="text-lg font-semibold">Brand</p>
       {loading && result !== null && <p>Loading brand...</p>}
        <RadioGroup onValueChange={(value) => setFilterBrand(value)}>

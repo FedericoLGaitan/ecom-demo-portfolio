@@ -37,11 +37,14 @@ export default function page() {
               {loading && (
                 <SkeletonSchema grid={3}/>
               )}
-              {result !== null && !loading && (
+              {filteredProducts !== null && !loading && (
                 filteredProducts.map((result: ProductType) => (
                 <ProductCard key={result.id} product={result}/>
                 )
               )
+              )}
+              {filteredProducts !== null && filteredProducts.length === 0 && (
+                <p>No products found</p>
               )}
           </div>
         </div>
