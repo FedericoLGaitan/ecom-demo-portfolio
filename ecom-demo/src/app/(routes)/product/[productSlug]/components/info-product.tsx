@@ -3,11 +3,13 @@ import {Separator} from "@/components/ui/separator";
 import {Button} from "@/components/ui/button";
 import { formatPrice } from "@/lib/formatPrice";
 import { Heart } from "lucide-react";
+import { useCart } from "@/hooks/use-cart";
 
 export type InfoProductProps = {
   product: ProductType;
 };
 const InfoProduct = (props: InfoProductProps) => {
+  const {addProduct} = useCart();
   const { product } = props;
   return (
     <div className="px-6">
@@ -33,7 +35,7 @@ const InfoProduct = (props: InfoProductProps) => {
       <Separator className="my-4"/>
     <p className="my-4 text-2xl">{formatPrice(product.price)}</p>
        <div className="flex items-center gap-5">
-         <Button className="w-full" onClick={()=> console.log("comprar")}>Comprar</Button>
+         <Button className="w-full" onClick={()=> addProduct(product)}>Comprar</Button>
          <Heart width={30} strokeWidth={1} className="transition duration-300 cursor-pointer hover:fill-black" 
          onClick={()=> console.log("add to favorites")}/>
         </div>

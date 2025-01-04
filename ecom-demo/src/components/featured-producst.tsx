@@ -6,7 +6,7 @@ import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious
 import SkeletonSchema from "./skeleton-schema"
 import { ProductType } from "@/types/product"
 import { Card, CardContent } from "./ui/card"
-import { Expand, ShoppingCart } from "lucide-react"
+import { Expand, ShoppingCart, Heart } from "lucide-react"
 import IconButton from "./icon-button"
 import { useRouter } from "next/navigation"
 import { useCart } from "@/hooks/use-cart"
@@ -17,6 +17,7 @@ const FeaturedProducts = () => {
    const router = useRouter(); 
    const {result, loading}: ResponseType = useFeaturedProducts()
    const {addProduct} = useCart()
+
         
         return (
         <div className="max-w-6xl py-4 mx-auto sm:py-16 sm:px-24">
@@ -41,7 +42,7 @@ const FeaturedProducts = () => {
                                                     <div className="flex justify-center gap-x-6">
                                                          <IconButton onClick={() => router.push(`product/${slug}`)} icon={<Expand/>} className="text-gray-600"/>
                                                          <IconButton onClick={() => addProduct(product)} icon={<ShoppingCart/> } className="text-gray-600"/>
-                                                         <IconButton onClick={() => console.log("Added to favorites")} icon={<Expand/>} className="text-gray-600"/>
+                                                         <IconButton onClick={() => console.log("Added to favorites")} icon={<Heart/>} className="text-gray-600"/>
                                                     </div>
                                                 </div>
                                             </CardContent>

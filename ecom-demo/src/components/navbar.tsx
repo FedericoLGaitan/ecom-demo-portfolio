@@ -1,11 +1,13 @@
 "use client"
-import { Heart, ShoppingCart, User } from "lucide-react"
+import { Heart, ShoppingCart, User, BaggageClaim } from "lucide-react"
 import { useRouter } from "next/navigation"
 import MenuList from "./menu-list"
 import MenuMobile from "./items-menu-mobile"
 import { ModeToggle } from "./theme-toggle"
+import {useCart} from "@/hooks/use-cart"
 
 export const Navbar = () => {
+   const {products} = useCart()
     const router = useRouter()
     return (
        <nav className="flex items-center justify-between p-4 mx-auto cursor-pointer sm:max-w-4xl md:max-w-6xl">
@@ -21,11 +23,14 @@ export const Navbar = () => {
             <MenuMobile/>
          </div>
          <div className="flex items-center justify-between gap-2 sm:gap-7">
-            <ShoppingCart strokeWidth="1" className="cursor-pointer" onClick={() => router.push("/cart")}/>
+            {products.length < 0 ?  <ShoppingCart strokeWidth="1" className="cursor-pointer" onClick={() => router.push("/cart")}/> 
+              : 
+              <div className="flex gap-1" onClick={() => router.push("/cart")}>
+                 <BaggageClaim strokeWidth="1" className="cursor-pointer"/>
+                 <span>{products.length}</span>
+              </div> }   
             <Heart strokeWidth="1" className="cursor-pointer" onClick={() => router.push("/favorites")}/>
             <User strokeWidth="1" className="cursor-pointer" onClick={() => router.push("/dashboard")}/>
-
-               <a href="/api/auth/login">Login</a>
           <ModeToggle/>
          </div>
        </nav>
