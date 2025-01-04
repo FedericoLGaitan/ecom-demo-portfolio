@@ -9,7 +9,7 @@ type setFilterBrandProps = {
 
 const FilterBrand = (props: setFilterBrandProps) => {
   const { setFilterBrand } = props;
-  const { result, error, loading }: FilterTypes = useGetProductsFields();
+  const { result, loading }: FilterTypes = useGetProductsFields();
   console.log(result);
   return (
     <div className="my-5 p-6">

@@ -6,7 +6,7 @@ export type productFilters = {
     singularName: string;
     pluralName: string;
     description: string;
-    pluginOptions: {};
+    pluginOptions: any;
     kind: string;
     collectionName: string;
     attributes: {

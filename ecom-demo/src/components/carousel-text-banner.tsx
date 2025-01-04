@@ -4,7 +4,6 @@ import { useRouter } from "next/navigation";
 import { Carousel, CarouselContent, CarouselItem } from "./ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
 import { Card, CardContent } from "./ui/card";
-import { Tienne } from "next/font/google";
 
 
 

@@ -1,4 +1,4 @@
-import { MenuIcon, SeparatorHorizontal } from "lucide-react"
+import { MenuIcon } from "lucide-react"
 import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover"
 import Link from "next/link"
 import { Separator } from "./ui/separator"

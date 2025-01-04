@@ -10,13 +10,15 @@ interface ICartStore {
     removeAllProducts: () => void;
 }
 
-export const useCart =  create(persist<ICartStore>((get, set) =>({
-    products: [],
-    addProduct: (product: ProductType) => {
-        const currentProducts = get().products
-        const exisingProduct = currentProducts.find((p) => p.id === product.id)
+export const useCart = create(
+    persist<ICartStore>(
+        (set, get) => ({
+            products: [],
+            addProduct: (product: ProductType) => {
+                const currentProducts = get().products;
+                const existingProduct = currentProducts.find((p) => p.id === product.id);
 
-        if(exisingProduct){
+        if(existingProduct) {
             return toast({
                 title: "Product already in cart",
                 description: "You can increase the quantity in the cart",
