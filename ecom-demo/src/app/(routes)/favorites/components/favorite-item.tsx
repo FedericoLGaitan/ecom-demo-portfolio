@@ -1,22 +1,35 @@
-import { useCart } from "@/hooks/use-cart";
-import { ProductType } from "@/types/product";
-import { useRouter } from "next/navigation";
-import Image from "next/image";
-import { formatPrice } from "@/lib/formatPrice";
-import {cn} from "@/lib/utils";
-import { X } from "lucide-react";
+"use client"
 
-interface CartProductProps { 
-    product: ProductType
+import { ProductType } from "@/types/product";
+import { useFavorites } from "@/hooks/use-favorites";
+import { useRouter } from "next/navigation"
+import { formatPrice } from "@/lib/formatPrice";
+import { X } from "lucide-react";
+import { cn } from "@/lib/utils";
+import React from "react";
+import Image from "next/image";
+import { Button } from "@/components/ui/button";
+import { useCart } from "@/hooks/use-cart";
+
+interface FavoriteItemProps {
+  product: ProductType;
 }
 
-const CartProduct = (props: CartProductProps) => {
-    const {product} = props
-    const router = useRouter()
-    const {removeProduct} = useCart()
-    return ( 
-        <li className="flex py-6 border-b">
-          <div className="cursor-pointer"
+const FavoriteItem = (props: FavoriteItemProps) => {
+  const { product } = props;
+  const router = useRouter();
+  const { removeFavorite } = useFavorites();
+  const {addProduct} = useCart();
+
+const addToCart = () => {
+    addProduct(product)
+    removeFavorite(product.id)
+}
+
+  return (
+  <li 
+  className=" flex px-6 bborder-bb">FavoriteItem
+      <div className="cursor-pointer"
            onClick={() => router.push(`/products/${product.slug}`)}>
                <Image
                     src={`${process.env.NEXT_PUBLIC_API_URL}${product.images[0].url}`}
@@ -34,17 +47,20 @@ const CartProduct = (props: CartProductProps) => {
                         <p className="px-2 py-1 text-slate-50 bg-black 
                         rounded-full dark:bg-slate-50 dark:text-black w-fit">{product.productBrand}</p>
                     </div>
+                  <Button className="w-full" onClick={() => addToCart}>Add to cart</Button>
              </div>
              <div>
                     <button 
                     className={cn("rounded-full flex items-center justify-center bg-slate-50 border shadow-md p-1 hover:scale-110 transition")}
-                    onClick={() => removeProduct(product.id)}>
+                    onClick={() => removeFavorite(product.id)}>
                      <X size={20} />
                     </button>
              </div>
           </div>
-        </li>
-    )
-}
 
-export default CartProduct;
+  </li>
+
+  )
+};
+
+export default FavoriteItem;

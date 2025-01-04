@@ -5,7 +5,7 @@ import {useCart} from "@/hooks/use-cart"
 import {Separator} from "@/components/ui/separator"
 import {formatPrice} from "@/lib/formatPrice"
 import {Button} from "@/components/ui/button"
-import cartProduct from "./components/cart-products"
+import CartProduct from "./components/cart-products"
 
 
 const CartPage = () => {
@@ -27,7 +27,7 @@ const CartPage = () => {
                 )}
                  <ul>
                     {products.map((product) => (
-                       <CartProduct key={product.id} product={product} onRemove={() => removeProduct(product.id)}/>
+                       <CartProduct key={product.id} product={product}/>
                     ))}
                  </ul>
                  <div className="max-w-xl">

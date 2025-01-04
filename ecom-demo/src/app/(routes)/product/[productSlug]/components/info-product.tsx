@@ -4,12 +4,14 @@ import {Button} from "@/components/ui/button";
 import { formatPrice } from "@/lib/formatPrice";
 import { Heart } from "lucide-react";
 import { useCart } from "@/hooks/use-cart";
+import { useFavorites } from "@/hooks/use-favorites";
 
 export type InfoProductProps = {
   product: ProductType;
 };
 const InfoProduct = (props: InfoProductProps) => {
   const {addProduct} = useCart();
+  const {addFavorite} = useFavorites();
   const { product } = props;
   return (
     <div className="px-6">
@@ -37,7 +39,7 @@ const InfoProduct = (props: InfoProductProps) => {
        <div className="flex items-center gap-5">
          <Button className="w-full" onClick={()=> addProduct(product)}>Comprar</Button>
          <Heart width={30} strokeWidth={1} className="transition duration-300 cursor-pointer hover:fill-black" 
-         onClick={()=> console.log("add to favorites")}/>
+         onClick={()=> addFavorite(product)}/>
         </div>
     </div>
   );

@@ -5,9 +5,11 @@ import MenuList from "./menu-list"
 import MenuMobile from "./items-menu-mobile"
 import { ModeToggle } from "./theme-toggle"
 import {useCart} from "@/hooks/use-cart"
+import {useFavorites} from "@/hooks/use-favorites"
 
 export const Navbar = () => {
    const {products} = useCart()
+   const {favorites} = useFavorites()
     const router = useRouter()
     return (
        <nav className="flex items-center justify-between p-4 mx-auto cursor-pointer sm:max-w-4xl md:max-w-6xl">
@@ -29,7 +31,10 @@ export const Navbar = () => {
                  <BaggageClaim strokeWidth="1" className="cursor-pointer"/>
                  <span>{products.length}</span>
               </div> }   
-            <Heart strokeWidth="1" className="cursor-pointer" onClick={() => router.push("/favorites")}/>
+
+            <Heart strokeWidth="1" className={`cursor-pointer ${favorites.length > 0 && "fill-black dark:fill-white"}`}
+             onClick={() => router.push("/favorites")}/>
+
             <User strokeWidth="1" className="cursor-pointer" onClick={() => router.push("/dashboard")}/>
           <ModeToggle/>
          </div>
