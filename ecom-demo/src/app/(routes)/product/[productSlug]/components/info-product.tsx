@@ -1,4 +1,4 @@
-import ProductType from "@/types/product";
+import {ProductType} from "@/types/product";
 import {Separator} from "@/components/ui/separator";
 import {Button} from "@/components/ui/button";
 import { formatPrice } from "@/lib/formatPrice";
