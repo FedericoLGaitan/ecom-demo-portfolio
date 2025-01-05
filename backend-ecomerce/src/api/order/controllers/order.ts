@@ -17,18 +17,14 @@ export default factories.createCoreController('api::order.order', ({strapi}) =>
         //@ts-ignore
 
         const {products} = ctx.request.body
+        console.log(products)
 
         try {
             const lineItems = await Promise.all(
                   products.map(async (product) => {
-                    console.log('Processing product with ID:', product.id);
+                      console.log(product)
                      const item = await strapi.service("api::product.product").findOne(product.id)
- 
-                     if (!item) {
-                        console.error(`Product with ID ${product.id} not found.`);
-                        throw new Error(`Product with ID ${product.id} not found.`);
-                    }
-                    
+                     
                      return  {
                         price_data: {
                             currency: "ars" ,
