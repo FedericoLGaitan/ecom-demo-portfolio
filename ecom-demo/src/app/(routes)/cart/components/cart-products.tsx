@@ -19,7 +19,7 @@ const CartProduct = (props: CartProductProps) => {
           <div className="cursor-pointer"
            onClick={() => router.push(`/products/${product.slug}`)}>
                <Image
-                    src={`${process.env.NEXT_PUBLIC_API_URL}${product.images[0].url}`}
+                    src={`${process.env.NEXT_PUBLIC_BACKEND_URL}${product.images[0].url}`}
                     alt={product.productName}
                     width={100}
                     height={100}
