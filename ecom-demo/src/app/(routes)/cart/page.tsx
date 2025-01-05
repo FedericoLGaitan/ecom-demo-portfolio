@@ -14,7 +14,7 @@ const CartPage = () => {
 
   const prices = products.map((product) => product.price);
   const totalPrice = prices.reduce((a, b) => a + b, 0);
-  const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRAPI_PUBLIC_KEY || "")
+  const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLIC_KEY || "")
 
   const buyStripe = async () => {
     try {

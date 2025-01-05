@@ -1,4 +1,3 @@
-"use strict"
 
 //@ts-ignore
 const stripe = require('stripe')(process.env.STRIPE_KEY)
@@ -22,10 +21,14 @@ export default factories.createCoreController('api::order.order', ({strapi}) =>
         try {
             const lineItems = await Promise.all(
                   products.map(async (product) => {
-                     const item = await strapi
-                     .service('api::product.prodsuct')
-                     .findOne(product.id)
-
+                    console.log('Processing product with ID:', product.id);
+                     const item = await strapi.service("api::product.product").findOne(product.id)
+ 
+                     if (!item) {
+                        console.error(`Product with ID ${product.id} not found.`);
+                        throw new Error(`Product with ID ${product.id} not found.`);
+                    }
+                    
                      return  {
                         price_data: {
                             currency: "ars" ,
@@ -40,7 +43,7 @@ export default factories.createCoreController('api::order.order', ({strapi}) =>
                   })
             )
             const session = await stripe.checkout.sessions.create({
-                shipping_adress_collection: {allowed_countries: ["US"]},
+                hipping_address_collection: {allowed_countries: ["US"]},
                 payment_method_types: ["card"],
                 mode: 'payment',
                 success_url: process.env.CLIENT_URL + "/success",
@@ -57,9 +60,9 @@ export default factories.createCoreController('api::order.order', ({strapi}) =>
 
             return {stripeSession: session}
         } catch(error) {
-
-            ctx.respone.status = 500
-           return error
+            console.error('Stripe Checkout Session Error:', error);
+            ctx.response.status = 500;
+            ctx.response.body = { error: error.message };
         }
     }
 }))
