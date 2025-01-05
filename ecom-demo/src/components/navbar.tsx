@@ -25,7 +25,7 @@ export const Navbar = () => {
             <MenuMobile/>
          </div>
          <div className="flex items-center justify-between gap-2 sm:gap-7">
-            {products.length < 0 ?  <ShoppingCart strokeWidth="1" className="cursor-pointer" onClick={() => router.push("/cart")}/> 
+            {products.length == 0 ?  <ShoppingCart strokeWidth="1" className="cursor-pointer" onClick={() => router.push("/cart")}/> 
               : 
               <div className="flex gap-1" onClick={() => router.push("/cart")}>
                  <BaggageClaim strokeWidth="1" className="cursor-pointer"/>

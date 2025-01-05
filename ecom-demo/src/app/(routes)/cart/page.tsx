@@ -22,7 +22,7 @@ const CartPage = () => {
        const res = await makePaymentRequest.post("/api/orders", {
          products: products
        })
-       awaite stripe?.redirectToCheckout({
+       await stripe?.redirectToCheckout({
           sessionId: res.data.stripeSession.id
     })
     } catch (error) {

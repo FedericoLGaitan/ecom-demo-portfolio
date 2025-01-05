@@ -3,7 +3,7 @@
 import { GetCategoryProducts } from "@/helpers/useGetCategoryProducts";
 import { Separator } from "@/components/ui/separator";
 import {ResponseType } from "@/types/response";
-import { useParams, useRouter } from "next/navigation";
+import { useParams} from "next/navigation";
 import FiltersOfCategory from "../components/filtered-of-category";
 import SkeletonSchema from "@/components/skeleton-schema";
 import ProductCard from "../components/product-card";
@@ -11,7 +11,6 @@ import { ProductType } from "@/types/product";
 import { useState } from "react";
 
 export default function page() {
-  const router = useRouter()
   const [filerBrand, setFilterBrand] = useState<string | null>(null)
   const params = useParams();
   const { slug } = params;
@@ -21,7 +20,6 @@ export default function page() {
        filerBrand == null ? result : result.filter((product: ProductType) => product.productBrand === filerBrand)
   )
 
-  console.log(filteredProducts)
   return (
     <section className="max-w-6xl py-4 mx-auto sm:py-16 sm:px-24">
       { result !== null && !loading && 
