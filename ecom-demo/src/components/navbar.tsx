@@ -32,7 +32,7 @@ export const Navbar = () => {
                  <span>{products.length}</span>
               </div> }   
 
-            <Heart strokeWidth="1" className={`cursor-pointer ${favorites.length > 0 && "fill-black dark:fill-white"}`}
+            <Heart strokeWidth="1" className={`cursor-pointer ${favorites.length !== 0 && "fill-black dark:fill-white"}`}
              onClick={() => router.push("/favorites")}/>
 
             <User strokeWidth="1" className="cursor-pointer" onClick={() => router.push("/dashboard")}/>

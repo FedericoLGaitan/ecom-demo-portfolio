@@ -11,7 +11,7 @@ const FavoritesPage = () => {
         <h1 className='sm:text-2xl'>Favorites Products</h1>
         
         <div>
-          {favorites.length === 0 && (
+          {favorites.length == 0 && (
             <p className='text-center'>No products in favorites</p>)
             }
             <ul>

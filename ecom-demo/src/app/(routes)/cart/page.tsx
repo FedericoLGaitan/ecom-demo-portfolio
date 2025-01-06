@@ -10,7 +10,7 @@ import {loadStripe} from "@stripe/stripe-js"
 import {makePaymentRequest} from "@/helpers/payment"
 
 const CartPage = () => {
-  const { products } = useCart();
+  const { products, removeAllProducts } = useCart();
 
   const prices = products.map((product) => product.price);
   const totalPrice = prices.reduce((a, b) => a + b, 0);
@@ -24,10 +24,11 @@ const CartPage = () => {
        })
        await stripe?.redirectToCheckout({
           sessionId: res.data.stripeSession.id
-    })
-    } catch (error) {
-      console.log(error);
-    }
+        })
+        removeAllProducts()
+      } catch (error) {
+        console.log(error);
+      }
   };
 
   return (

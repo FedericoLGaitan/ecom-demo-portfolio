@@ -28,11 +28,11 @@ const addToCart = () => {
 
   return (
   <li 
-  className=" flex px-6 bborder-bb">FavoriteItem
+  className=" flex px-6 border-b">Favorite Item
       <div className="cursor-pointer"
            onClick={() => router.push(`/products/${product.slug}`)}>
                <Image
-                    src={`${process.env.NEXT_PUBLIC_API_URL}${product.images[0].url}`}
+                    src={`${process.env.NEXT_PUBLIC_BACKEND_URL}${product.images[0].url}`}
                     alt={product.productName}
                     width={100}
                     height={100}
@@ -47,7 +47,7 @@ const addToCart = () => {
                         <p className="px-2 py-1 text-slate-50 bg-black 
                         rounded-full dark:bg-slate-50 dark:text-black w-fit">{product.productBrand}</p>
                     </div>
-                  <Button className="w-full" onClick={() => addToCart}>Add to cart</Button>
+                  <Button className="w-full" onClick={addToCart}>Add to cart</Button>
              </div>
              <div>
                     <button 
