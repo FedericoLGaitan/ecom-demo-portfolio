@@ -1,10 +1,8 @@
 Problemas que faltan de la demo del ecomerce.
 
-1. vincular bein las compras con strapi (la ID de los productos en el carrito no coincide con la de la base de datos 
+1. vincular bien las compras con stripe(la ID de los productos en el carrito no coincide con la de la base de datos 
 para crear las oredenes)
 
-2. el filtrado en las categorias me dejo de andar, debe ser algo en como se busca los filtros de los productos
-puede estar en el administrador de strapi en algun peticion.
 
-3. hay que deployar el proyecto todavia. 
+2. hay que deployar el proyecto todavia. 
 

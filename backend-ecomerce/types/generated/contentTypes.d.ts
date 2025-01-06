@@ -436,7 +436,7 @@ export interface ApiProductProduct extends Struct.CollectionTypeSchema {
     singularName: 'product';
   };
   options: {
-    draftAndPublish: true;
+    draftAndPublish: false;
   };
   attributes: {
     active: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
