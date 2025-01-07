@@ -1,6 +1,5 @@
 
-
-export function page() {
+ function DashboardPage() {
     return (
         <div className="flex flex-col">
             <p className="text-2xl font-bold">
@@ -12,4 +11,4 @@ export function page() {
 }
 
 
-export default page
+export default DashboardPage

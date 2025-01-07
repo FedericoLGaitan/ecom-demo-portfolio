@@ -1,8 +1,5 @@
 Problemas que faltan de la demo del ecomerce.
 
-1. vincular bien las compras con stripe(la ID de los productos en el carrito no coincide con la de la base de datos 
-para crear las oredenes)
 
-
-2. hay que deployar el proyecto todavia. 
+1. hay que deployar el proyecto todavia. 
 
