@@ -44,5 +44,7 @@ Este es un proyecto de eCommerce desarrollado utilizando **Next.js** en el front
 ### Clonar el Repositorio
 
 ```bash
-git clone https://github.com/tu-usuario/ecommerce-app.git
-cd ecommerce-app
+git clone https://github.com/tu-usuario/ecom-demo-portfolio.git
+cd ecom-demo-portfolio ;
+
+
